@@ -1,0 +1,9 @@
+<template>
+    <lightning-card>
+        <h3 slot="title">
+            <lightning-icon icon-name="standard:account" size="small"></lightning-icon>
+            Create Account
+        </h3>
+        <lightning-record-form object-api-name={objectApiName} fields={fieldList} onsuccess={handleAccountCreate}></lightning-record-form>
+    </lightning-card>
+</template>

@@ -1,0 +1,30 @@
+<template>
+    
+    <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+         <tr>
+        <th>SELECT</th>
+        <th>AccountName</th>
+        <th>Phone</th>
+        <th>Industry</th>
+    </tr>
+        <template for:each={accounts.data} for:item="acc">
+            <tr key={acc.Id}>
+                <td>
+                    <lightning-input type="radio" name="radioButton" value={acc.Id} onchange={handleClick}></lightning-input>
+                </td>
+                <td>
+                    {acc.Name}
+                </td>
+                <td>
+                    {acc.Phone}
+                </td>
+               
+                <td>
+                    {acc.Industry}
+                </td>
+               
+                 </tr>
+        </template>
+    </table>
+
+</template>

@@ -1,0 +1,61 @@
+<template>
+
+  <!--
+    <div class="slds-m-around_medium">
+        <h1 class="slds-text-heading_small">accordion-section</h1>
+        </div>
+    <lightning-accordion active-section-name="A">
+        <lightning-accordion-section name="A" label="Accordion Title A">
+                <lightning-button-menu slot="actions" alternative-text="Show menu" icon-size="x-small" menu-alignment="auto">
+                    <lightning-menu-item value="New" label="Menu Item One"></lightning-menu-item>
+                    <lightning-menu-item value="Edit" label="Menu Item Two"></lightning-menu-item>
+                </lightning-button-menu>
+                <p>This is the content area for section A.</p>
+                <p>.</p>
+                <p>.</p>
+                <p>.</p>
+                <p>The section height expands to fit your content.</p>
+        </lightning-accordion-section>
+    </lightning-accordion>
+
+
+-->
+
+<lightning-card title="Accordion Example with DELETE Option" icon-name="custom:custom14">
+<h6>Accoridan Exmape</h6>
+
+    <lightning-accordion allow-multiple-sections-open={multiple}>
+        <template if:true={accounts}>
+            <template for:each={accounts} for:item="acc">
+                <lightning-accordion-section name={acc.Name} label={acc.Name} key={acc.Id}>
+
+
+                    <table border="1" cellspacing="0" cellpadding="5" style="border-collapse:collapse;" class="tblColPad">
+                        <tr>
+                            <th>First Name</th>
+                          <!--  <th>Last Name</th>
+                            <th>Email</th>
+                            <th> </th>      -->
+                            </tr>
+                  
+                    
+                    <template for:each={acc.Contacts} for:item="con">
+                    <!--    <p key={con.Id}> Contact - {con.Name}   -->
+
+                             <tr key={con.Id}>
+                                    <td>{con.Name}</td>
+                                <!--    <td>{con.LastName}</td>
+                                    <td>{con.Email}</td>
+                            -->
+               <td> <lightning-button label="Delete" size="small" variant="neutral" onclick={handleContactDelete} value={con.Id} icon-name="utility:delete" icon-position="right" class="deleteButton"></lightning-button>
+               </td> 
+                     </tr>
+                    </template>
+                </table>
+                 </lightning-accordion-section>
+            </template>
+        </template>
+    </lightning-accordion>
+
+</lightning-card>
+</template>
